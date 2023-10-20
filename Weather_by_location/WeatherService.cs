@@ -1,10 +1,10 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Weather_by_location.Properties;
 
 namespace Weather_by_location
 {
@@ -118,8 +118,7 @@ namespace Weather_by_location
             try
             {
                 // Выбор HTML-шаблона на основе выбранного языка
-                string templatePath = (language == "ru") ? "template_ru.html" : "template_en.html";
-                string htmlTemplate = File.ReadAllText(templatePath);
+                string htmlTemplate = (language == "ru") ? Resources.template_ru : Resources.template_en;
 
                 StringBuilder htmlBuilder = new StringBuilder(htmlTemplate);
                 ReplacePlaceholders(weatherData, htmlBuilder, forecastData, language);

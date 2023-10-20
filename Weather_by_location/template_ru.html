@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Стили для дня */
+        body[data-time="True"] {
+            background-color: #cce7ff; /* Цвет фона для дневного времени */
+        }
+        /* Стили для ночи */
+        body[data-time="False"] {
+            background-color: #000; /* Цвет фона для ночного времени */
+            color: #fff; /* Цвет текста для ночного времени */
+        }
+        /* Добавьте стили для таблицы и других элементов */
+        h1, h2 {
+            text-align: center;
+        }
+		table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+        th, td, p {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th[data-time="True"] {
+            background-color: #cce7ff; /* Цвет фона для дневного времени */
+			color: #333;
+        }
+		th[data-time="False"] {
+			background-color: #000; /* Цвет фона для ночного времени */
+			color: #fff;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body data-time="{current_isday}">
+    <h1>{city}</h1>
+    <table border='1'>
+        <tr>
+            <th>Время суток</th>
+            <th>Температура (°C)</th>
+            <th>Относительная влажность (%)</th>
+            <th>Ощущается как (°C)</th>
+            <th>Вероятность осадков (%)</th>
+            <th>Облачность (%)</th>
+            <th>Скорость ветра (м/с)</th>
+        </tr>
+        {weather}
+    </table>
+    <h2>Текущая погода:</h2>
+		<p>Температура: {current_temperature} °C</p>
+		<p>Относительная влажность: {current_relativehumidity} %</p>
+		<p>Ощущается как: {current_feels_like} °C</p>
+		<p>Вероятность выпадения осадков: {current_precipitation_probability} %</p>
+		<p>Поверхностное давление: {current_surface_pressure} мм рт. ст.</p>
+		<p>{current_cloudiness}</p>
+		<p>Скорость ветра: {current_windspeed} м/с</p>
+		<p>Направление ветра: {current_winddirection}</p>
+		<p>{current_uv_index}</p>
+		<p>{daylight_hours}</p>
+</body>
+</html>
